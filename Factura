@@ -1,0 +1,100 @@
+*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package factura;
+
+public class Factura {
+
+    private int numero;
+    private String fecha;
+    private Cliente cliente;
+    private producto[] productos;
+
+    public Factura(int numero, String fecha, Cliente cliente) {
+        this.numero = numero;
+        this.fecha = fecha;
+        this.cliente = cliente;
+        this.productos = new producto[0]; 
+        
+    }
+    
+    public void agregarProducto(producto producto) {
+    
+        producto[] nuevosProductos = new producto[this.productos.length + 1];
+      
+        System.arraycopy(this.productos, 0, nuevosProductos, 0, this.productos.length);
+   
+        nuevosProductos[this.productos.length] = producto;
+     
+        this.productos = nuevosProductos;
+    }
+    
+    
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public producto[] getProductos() {
+        return productos;
+    }
+
+    public void setProductos(producto[] productos) {
+        this.productos = productos;
+    }
+
+    public static void main(String[] args) {
+       System.out.println("=======Datos del cliente======");
+       
+        Cliente cliente = new Cliente("Juan Perez", "0801-1999-12345", "Colonia Las Flores", "2233-4567");
+        cliente.infoc();
+        
+        System.out.println("");
+        
+        System.out.println("======Informacion del Producto======");
+        categoriaproducto categoria = new categoriaproducto("Electrónica","Tres");
+
+        
+        producto producto = new producto("Televisor", 500.0, categoria, 2);
+        producto.infoP();
+        
+ 
+        Factura factura = new Factura(1, "2022-01-01", cliente);
+        
+        factura.agregarProducto(producto);
+        
+      
+        double total = pagarFactura(factura);  
+        System.out.println("");
+        System.out.println("Total a pagar: " + total);
+        
+    }
+
+    public static double pagarFactura(Factura factura) {
+        double total = 0.0;
+        for (producto producto : factura.getProductos()) {
+            total += producto.getPrecio() * producto.getCantidad();
+        }
+        return total;
+    }
+}
