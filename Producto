@@ -1,0 +1,61 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package factura;
+
+public class producto {
+    
+    String nombre;
+    double Precio;
+    int cantidad;
+    private categoriaproducto categoriaproducto;
+    
+     public producto(String nombre, double precio, categoriaproducto categoria, int cantidad) {
+        this.nombre = nombre;
+        this.Precio= precio;
+        this.categoriaproducto=categoria;
+        this.cantidad = cantidad;
+        
+        
+     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public categoriaproducto getcategoria() {
+        return categoriaproducto;
+    }
+
+    public void setCategoriaproducto(categoriaproducto categoriaproducto) {
+        this.categoriaproducto = categoriaproducto;
+    }
+    
+    public void infoP(){
+        System.out.println("Producto"+this.nombre);
+        System.out.println("Precio del producto"+this.Precio);
+        System.out.println("Categoria del producto y pasillo en el que se encuentra:"+this.categoriaproducto);
+        System.out.println("cantidad:"+this.cantidad);
+    }
+}
