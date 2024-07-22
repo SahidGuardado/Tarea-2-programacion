@@ -1,0 +1,59 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package factura;
+
+
+public class Cliente {
+    private String nombre;
+    private String rtn;
+    private String direccion;
+    private String telefono;
+
+    public Cliente(String nombre, String rtn, String direccion, String telefono) {
+        this.nombre = nombre;
+        this.rtn = rtn;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getRtn() {
+        return rtn;
+    }
+
+    public void setRtn(String rtn) {
+        this.rtn = rtn;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void infoc(){
+        System.out.println("Nombre del cliente "+this.nombre);
+        System.out.println("RNT:" +this.rtn);
+            System.out.println("Lugar de recidencia: "+ this.direccion);
+            System.out.println("Telefono:"+this.telefono);
+    }
+}
